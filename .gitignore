@@ -1,0 +1,22 @@
+# OS generated files
+.DS_Store?
+.DS_Store
+*.pyc
+.Python
+
+# environments
+bin/*
+include/*
+lib/*
+*.code-workspace
+
+# packages and etc
+/**/node_modules/*
+.vscode/*
+static_cdn/*
+
+# databases
+/**/db.*
+
+# vim copy
+*~
