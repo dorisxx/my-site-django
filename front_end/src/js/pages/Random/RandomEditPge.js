@@ -34,7 +34,6 @@ class RandomEditPage extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("random", state);
   return {
     post: state.content
   };

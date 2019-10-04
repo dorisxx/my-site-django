@@ -17,7 +17,6 @@ export default class RandomCard extends Component {
     header: true
   };
   render() {
-    console.log(this.props);
     return (
       <>
         <Style />

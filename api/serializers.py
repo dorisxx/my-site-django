@@ -50,7 +50,7 @@ class PostDetailSerializer(PostSerializer):
     class Meta:
         model = Post
         fields = ('id', 'title', 'slug', 'body', 'created', 'updated',
-                  'public', 'author', 'active', 'comments', 'tags')
+                  'public', 'active', 'comments', 'tags')
         lookup_field = 'slug'
         extra_kwargs = {
             'url': {'lookup_field': 'slug'}

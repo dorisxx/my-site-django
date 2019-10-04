@@ -105,8 +105,6 @@ class EditForm extends React.Component {
     this.props.history.push("/blog/");
   }
   updateOrNewPost(data) {
-    console.log("data", this.state, data);
-    console.log(this.props);
     if (this.props.new) {
       this.saveNewPost(data);
     } else {
