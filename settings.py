@@ -133,11 +133,11 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = (os.path.join(BASE_PATH, "all_static"),
                     os.path.join(BASE_PATH, "front_end/dist"))
 
-STATIC_ROOT = os.path.join(os.path.dirname(
-    BASE_PATH), "static_cdn", "static_root")
+STATIC_ROOT = os.path.join(
+    BASE_PATH, "static_cdn", "static_root")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_PATH),
+MEDIA_ROOT = os.path.join(BASE_PATH,
                           "static_cdn", "media_root")
 
 AUTH_USER_MODEL = 'core.User'
