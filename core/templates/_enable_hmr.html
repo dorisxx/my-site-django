@@ -4,9 +4,9 @@
 <script src="http://localhost:3000/hmr/{{ hmr_path }}"></script>
 <script>
     if (window.webpackHotUpdate === undefined) {
-        document.write('<script src="{{ staticfiles_path }}"><\/script>')
+        document.write('<script src="{{ static_path }}"><\/script>')
     }
 </script>
 {% else %}
-<script src="{{ staticfiles_path }}"></script>
+<script src="{{ static_path }}"></script>
 {% endif %}
