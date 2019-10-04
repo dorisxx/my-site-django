@@ -85,7 +85,6 @@ class CommentViewSet(BasePostViewSet):
 
 class PostViewSet(BasePostViewSet):
     queryset = Post.objects.all()
-    num_posts = queryset.count()
     serializer_class = serializers.PostSerializer
     lookup_field = 'slug'
 
@@ -94,9 +93,9 @@ class PostViewSet(BasePostViewSet):
         queryset = self.queryset
         if not self.request.user.is_authenticated:
             queryset = Post.objects.get_blog()
-        self.num_posts = queryset.count()
+        num_posts = queryset.count()
         if page_num.isdigit():
-            if (int(page_num)-1)*POSTS_PER_PAGE < self.num_posts:
+            if (int(page_num)-1)*POSTS_PER_PAGE < num_posts:
                 page_num = int(page_num)-1
         else:
             page_num = 0
@@ -118,7 +117,7 @@ class PostViewSet(BasePostViewSet):
             many = False
         else:
             _to_be_serialized = self.get_posts()
-            num_posts = self.num_posts
+            num_posts = _to_be_serialized.count()
             pages = (int(num_posts / 5) +
                      1 if int(num_posts) % 5 else int(num_posts/5))
             many = True
