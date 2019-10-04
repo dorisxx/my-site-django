@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'urls'
@@ -130,16 +131,15 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = (os.path.join(BASE_PATH, "all_static"),
-                    os.path.join(BASE_PATH, "front_end/dist"))
-
 STATIC_ROOT = os.path.join(
-    BASE_PATH, "static_cdn", "static_root")
+    BASE_PATH, "static/")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_PATH,
-                          "static_cdn", "media_root")
+MEDIA_ROOT = os.path.join(BASE_PATH, "media")
 
+STATICFILES_DIRS = (os.path.join(BASE_PATH, "front_end/dist"),)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 AUTH_USER_MODEL = 'core.User'
 
 POSTS_PER_PAGE = 5

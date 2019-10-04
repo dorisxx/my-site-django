@@ -7,6 +7,7 @@ register = template.Library()
 
 @register.inclusion_tag('_enable_hmr.html')
 def load_hmr_js(path):
+    print(storage.staticfiles_storage.url(path))
     return {
         'hmr_path': path.replace('.min.js', '.js'),
         'staticfiles_path': storage.staticfiles_storage.url(path),

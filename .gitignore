@@ -13,7 +13,7 @@ lib/*
 # packages and etc
 /**/node_modules/*
 .vscode/*
-static_cdn/*
+static/*
 
 # databases
 /**/db.*
