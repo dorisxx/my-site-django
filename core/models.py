@@ -82,11 +82,6 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     body = models.TextField(blank=True, null=True)
     public = models.BooleanField(default=False)
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        default=User.objects.first().id
-    )
     active = models.BooleanField(default=True)
     tags = models.ManyToManyField(Tag, blank=True)
     is_about = models.BooleanField(default=False)
@@ -129,11 +124,6 @@ class RandomPost(models.Model):
     updated = models.DateTimeField(auto_now=True)
     body = models.TextField(blank=True, null=True)
     public = models.BooleanField(default=False)
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        default=User.objects.first().id
-    )
     active = models.BooleanField(default=True)
 
     def __str__(self):
