@@ -126,5 +126,8 @@ class RandomPost(models.Model):
     public = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ('-created')
+
     def __str__(self):
         return self.title
