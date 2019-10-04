@@ -139,7 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_PATH, "media")
 
 STATICFILES_DIRS = (os.path.join(BASE_PATH, "front_end/dist"),)
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 AUTH_USER_MODEL = 'core.User'
 
 POSTS_PER_PAGE = 5
