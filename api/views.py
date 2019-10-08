@@ -93,6 +93,8 @@ class PostViewSet(BasePostViewSet):
         queryset = self.queryset
         if not self.request.user.is_authenticated:
             queryset = Post.objects.get_blog()
+        else:
+            queryset = Post.objects.get_all_blog()
         num_posts = queryset.count()
         if page_num.isdigit():
             if (int(page_num)-1)*POSTS_PER_PAGE < num_posts:
