@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MarkDownCard from "../../components/MarkDownCard";
 import { connect } from "react-redux";
 import { fetchNow } from "../../actions";
+import LoadSpinner from "../../components/Spinner";
 
 class NowPage extends Component {
   state = {
@@ -33,17 +34,20 @@ class NowPage extends Component {
   }
 
   render() {
-    return (
-      <MarkDownCard
-        key={this.state.updated}
-        slug={this.state.slug}
-        updated={this.state.updated}
-        content={this.state.abstract}
-        title={this.state.title}
-        showOptions={this.props.userEmail}
-        noabout
-      />
-    );
+    if (!this.state.loading) {
+      return (
+        <MarkDownCard
+          key={this.state.updated}
+          slug={this.state.slug}
+          updated={this.state.updated}
+          content={this.state.abstract}
+          title={this.state.title}
+          showOptions={this.props.userEmail}
+          noabout
+        />
+      );
+    }
+    return <LoadSpinner />;
   }
 }
 

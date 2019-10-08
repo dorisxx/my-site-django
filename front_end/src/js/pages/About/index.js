@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MarkDownCard from "../../components/MarkDownCard";
 import { connect } from "react-redux";
 import { fetchAbout } from "../../actions";
+import LoadSpinner from "../../components/Spinner";
 
 class AboutPage extends Component {
   state = {
@@ -33,16 +34,19 @@ class AboutPage extends Component {
   }
 
   render() {
-    return (
-      <MarkDownCard
-        updated={this.state.updated}
-        content={this.state.abstract}
-        title={this.state.title}
-        showOptions={this.props.userEmail}
-        slug={this.state.slug}
-        noabout
-      />
-    );
+    if (!this.state.loading) {
+      return (
+        <MarkDownCard
+          updated={this.state.updated}
+          content={this.state.abstract}
+          title={this.state.title}
+          showOptions={this.props.userEmail}
+          slug={this.state.slug}
+          noabout
+        />
+      );
+    }
+    return <LoadSpinner />;
   }
 }
 
