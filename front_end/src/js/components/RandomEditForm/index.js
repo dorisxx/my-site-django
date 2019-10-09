@@ -22,6 +22,7 @@ class RandomEditForm extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.props.content);
     if (this.props.content) {
       this.setState({
         body: this.props.content.body,
@@ -57,10 +58,10 @@ class RandomEditForm extends React.Component {
 
   saveNewPost(data) {
     api
-      .post("/posts/?edit=true", data)
+      .post(`/random/`, data)
       .then(() => {
         alert("post saved successfully");
-        this.redirectToBlog();
+        this.redirectToRandom();
       })
       .catch(() => alert("saving post failed."));
   }
@@ -98,7 +99,6 @@ class RandomEditForm extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <>
         <Style />

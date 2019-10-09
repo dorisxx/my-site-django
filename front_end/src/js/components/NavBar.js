@@ -1,8 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, Navbar, Dropdown } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 const NavBar = props => {
+  const Logout = () => {
+    if (localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      location.reload();
+    }
+  };
+
   return (
     <>
       <style type="text/css">
@@ -100,8 +108,16 @@ const NavBar = props => {
                   <Dropdown.Item href="/blog/edit/new">
                     New Blog Post
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
+                  <Dropdown.Item href="/random/edit/new">
                     New Random POST
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    href="#"
+                    onClick={e => {
+                      Logout(e);
+                    }}
+                  >
+                    Log out
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -113,4 +129,4 @@ const NavBar = props => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

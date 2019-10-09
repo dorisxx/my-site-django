@@ -9,6 +9,7 @@ import BlogDetailPage from "./pages/Blog/BlogDetailPage";
 import BlogEditPage from "./pages/Blog/BlogEditPage";
 import RandomEditPage from "./pages/Random/RandomEditPge";
 import EditForm from "./components/EditForm/EditForm";
+import RandomEditForm from "./components/RandomEditForm";
 import AboutPage from "./pages/About";
 import LoginPage from "./pages/Auth";
 import RandomPage from "./pages/Random";
@@ -20,6 +21,7 @@ import {
   RouterBackGroundContainer
 } from "./components/Containers";
 import { signIn } from "./actions";
+import Random from "./pages/Random";
 
 const _Routes = props => {
   if (localStorage.getItem("token") && !props.userEmail) {
@@ -47,6 +49,11 @@ const _Routes = props => {
               render={props => <EditForm {...props} new />}
             />
             <Route exact path="/blog/edit/:slug" component={BlogEditPage} />
+            <Route
+              exact
+              path="/random/edit/new"
+              render={props => <RandomEditForm {...props} new />}
+            />
             <Route exact path="/random/edit/:id" component={RandomEditPage} />
           </Switch>
         </ContentContainer>
