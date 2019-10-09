@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchRandomPost } from "../../actions";
 import LoadSpinner from "../../components/Spinner";
-import EditForm from "../../components/EditForm/EditForm";
+import RandomEditForm from "../../components/RandomEditForm";
 
 class RandomEditPage extends Component {
   state = {
@@ -26,7 +26,7 @@ class RandomEditPage extends Component {
   render() {
     if (!this.state.loading) {
       {
-        return <EditForm content={this.state.content} />;
+        return <RandomEditForm content={this.state.content} />;
       }
     }
     return <LoadSpinner />;

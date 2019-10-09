@@ -35,14 +35,16 @@ class BasePostViewSet(viewsets.GenericViewSet,
 
 
 class RandomPostViewSet(BasePostViewSet):
-    queryset = RandomPost.objects.all().filter(active=True, public=True)
+    queryset = RandomPost.objects.all()
     serializer_class = serializers.RandomPostSerializer
 
     def get_posts(self):
         page_num = self.request.query_params.get('page', "1")
         queryset = self.queryset
         if self.request.user.is_authenticated:
-            queryset = RandomPost.objects.all()
+            queryset = self.queryset
+        else:
+            queryset = self.queryset.filter(active=True, public=True)
         num_posts = queryset.count()
         if page_num.isdigit():
             if (int(page_num)-1)*POSTS_PER_PAGE < num_posts:
@@ -64,6 +66,10 @@ class RandomPostViewSet(BasePostViewSet):
         result_set = serializer.data
         result_set.append({'pages': pages})
         return Response(result_set)
+
+    def get(self, request, pk=None):
+        print(pk)
+        return Response({'test': 'haha'})
 
 
 class TagViewSet(BasePostViewSet):

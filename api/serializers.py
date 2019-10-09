@@ -30,7 +30,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class RandomPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = RandomPost
-        fields = ('created', 'body', 'public', 'active')
+        fields = ('created', 'body', 'public', 'active', 'id')
 
 
 class PostSerializer(serializers.ModelSerializer):
