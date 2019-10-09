@@ -14,7 +14,7 @@ lib/*
 /**/node_modules/*
 .vscode/*
 static/*
-
+/**/__pycache__/*
 # databases
 /**/db.*
 
