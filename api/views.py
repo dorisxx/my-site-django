@@ -67,6 +67,14 @@ class RandomPostViewSet(BasePostViewSet):
         result_set.append({'pages': pages})
         return Response(result_set)
 
+    def delete(self, request, pk):
+        instance = self.get_object()
+        if instance:
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
     def perform_update(self, serializer):
         serializer.save()
 

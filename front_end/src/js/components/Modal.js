@@ -13,17 +13,31 @@ const AlertModal = props => {
   const handleClose = () => setShow(false);
 
   const handleDelete = () => {
-    api
-      .delete(`/posts/${props.slug}/`)
-      .then(response => {
-        if (response.status === 204) {
-          location.reload();
-          setShow(false);
-        }
-      })
-      .catch(() => {
-        setContent(FailedWarning);
-      });
+    if (props.random && props.id) {
+      api
+        .delete(`/random/${props.id}`)
+        .then(response => {
+          if (response.status == 204) {
+            location.reload();
+            setShow(false);
+          }
+        })
+        .catch(() => {
+          setContent(FailedWarning);
+        });
+    } else {
+      api
+        .delete(`/posts/${props.slug}/`)
+        .then(response => {
+          if (response.status === 204) {
+            location.reload();
+            setShow(false);
+          }
+        })
+        .catch(() => {
+          setContent(FailedWarning);
+        });
+    }
   };
 
   return (

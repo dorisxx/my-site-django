@@ -32,7 +32,12 @@ class EditPanel extends Component {
     return (
       <>
         {this.state.clicked === "delete" && (
-          <AlertModal key={Math.random()} slug={this.props.slug} />
+          <AlertModal
+            key={Math.random()}
+            slug={this.props.slug}
+            id={this.props.id}
+            random={this.props.random}
+          />
         )}
         <ButtonGroup
           aria-label="Basic example"
