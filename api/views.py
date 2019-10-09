@@ -67,9 +67,18 @@ class RandomPostViewSet(BasePostViewSet):
         result_set.append({'pages': pages})
         return Response(result_set)
 
-    def get(self, request, pk=None):
-        print(pk)
-        return Response({'test': 'haha'})
+    def perform_update(self, serializer):
+        serializer.save()
+
+    def partial_update(self, request, pk):
+        instance = self.get_object()
+        if instance:
+            serializer = self.get_serializer(
+                instance, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_update(serializer)
+            return Response(serializer.data)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class TagViewSet(BasePostViewSet):
