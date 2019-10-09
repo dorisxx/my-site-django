@@ -25,11 +25,6 @@
 
 <body>
     <div id="root"></div>
-    <script>
-        window.reactStuff = Object.assign(window.reactStuff || {}, {
-            csrftoken: "{{csrf_token}}"
-        });
-    </script>
     {% load_hmr_js 'js/index.min.js' %}
 
 </body>
