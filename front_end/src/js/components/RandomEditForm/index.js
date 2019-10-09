@@ -22,7 +22,6 @@ class RandomEditForm extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.content);
     if (this.props.content) {
       this.setState({
         body: this.props.content.body,
