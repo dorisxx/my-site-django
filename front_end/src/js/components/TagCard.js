@@ -13,8 +13,10 @@ const TagWrapper = styled.div`
   color: white;
   display:flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   align-items: center;
+  & .badge {
+      margin: auto 10px;
+  }
 `;
 
 
@@ -40,7 +42,6 @@ export default class TagCard extends Component {
     }
 
     renderTags() {
-        console.log(this.state.tags)
         return this.state.tags.map(tag => {
             return (
                 <Badge variant="light" key={tag.label}>
