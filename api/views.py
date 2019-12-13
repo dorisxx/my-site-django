@@ -37,6 +37,7 @@ class BasePostViewSet(viewsets.GenericViewSet,
 class RandomPostViewSet(BasePostViewSet):
     queryset = RandomPost.objects.all()
     serializer_class = serializers.RandomPostSerializer
+    num_posts = None
 
     def get_posts(self):
         page_num = self.request.query_params.get('page', "1")
@@ -46,6 +47,7 @@ class RandomPostViewSet(BasePostViewSet):
         else:
             queryset = self.queryset.filter(active=True, public=True)
         num_posts = queryset.count()
+        self.num_posts = num_posts
         if page_num.isdigit():
             if (int(page_num)-1)*POSTS_PER_PAGE < num_posts:
                 page_num = int(page_num)-1
@@ -59,7 +61,7 @@ class RandomPostViewSet(BasePostViewSet):
 
     def list(self, request, pk=None):
         _to_be_serialized = self.get_posts()
-        num_posts = _to_be_serialized.count()
+        num_posts = self.num_posts
         pages = (int(num_posts / 5) +
                  1 if int(num_posts) % 5 else int(num_posts/5))
         serializer = self.get_serializer(_to_be_serialized, many=True)
@@ -110,6 +112,7 @@ class PostViewSet(BasePostViewSet):
     queryset = Post.objects.all()
     serializer_class = serializers.PostSerializer
     lookup_field = 'slug'
+    num_posts = None
 
     def get_posts(self):
         page_num = self.request.query_params.get('page', "1")
@@ -119,12 +122,14 @@ class PostViewSet(BasePostViewSet):
         else:
             queryset = Post.objects.get_all_blog()
         num_posts = queryset.count()
+        self.num_posts = num_posts
         if page_num.isdigit():
             if (int(page_num)-1)*POSTS_PER_PAGE < num_posts:
                 page_num = int(page_num)-1
         else:
             page_num = 0
-        start_index = page_num*POSTS_PER_PAGE
+
+        start_index = int(page_num)*POSTS_PER_PAGE
         end_index = start_index+POSTS_PER_PAGE
         queryset = queryset.order_by(
             '-created')[start_index: end_index]
@@ -142,7 +147,7 @@ class PostViewSet(BasePostViewSet):
             many = False
         else:
             _to_be_serialized = self.get_posts()
-            num_posts = _to_be_serialized.count()
+            num_posts = self.num_posts
             pages = (int(num_posts / 5) +
                      1 if int(num_posts) % 5 else int(num_posts/5))
             many = True
