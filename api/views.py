@@ -128,7 +128,8 @@ class PostViewSet(BasePostViewSet):
                 page_num = int(page_num)-1
         else:
             page_num = 0
-        start_index = page_num*POSTS_PER_PAGE
+
+        start_index = int(page_num)*POSTS_PER_PAGE
         end_index = start_index+POSTS_PER_PAGE
         queryset = queryset.order_by(
             '-created')[start_index: end_index]

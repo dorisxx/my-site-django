@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchPosts } from "../../actions";
 import LoadSpinner from "../../components/Spinner";
 import Pagination from "../../components/Pagination";
+import TagCard from "../../components/TagCard";
 
 class BlogPage extends Component {
   state = {
@@ -65,6 +66,7 @@ class BlogPage extends Component {
         return (
           <>
             {this.renderPostList()}
+            <TagCard />
             <Pagination
               key={!!this.state.loading}
               pages={this.state.pages}
