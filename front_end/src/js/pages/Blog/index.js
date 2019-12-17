@@ -101,7 +101,6 @@ class BlogPage extends Component {
           showOptions={this.props.userEmail}
           public={item.public}
           comments={item.comments.length}
-          onFilteredByTag={tagid => this.filterPostsByTag(tagid)}
           showCreated
         />
       );
@@ -127,7 +126,7 @@ class BlogPage extends Component {
               pages={this.state.pages}
               handlePageChange={pageNum => this.handlePageChange(pageNum)}
             />}
-            {this.state.filterOption && <TextWrapper><NavLink to="/blog" onClick={() => this.setState({ filterOption: null })}>Back to All Posts</NavLink></TextWrapper>}
+            {this.state.filterOption && <TextWrapper><NavLink to="/blog" onClick={() => this.setState({ filterOption: null })}>Back to All</NavLink></TextWrapper>}
           </>
         );
       }

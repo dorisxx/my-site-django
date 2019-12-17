@@ -40,7 +40,7 @@ export const fetchNow = () => async dispatch => {
   dispatch({ type: FETCH_NOW, payload: response.data });
 };
 
-export const fetchPosts = (page_num = 1, tag = null) => async dispatch => {
+export const fetchPosts = (page_num = 1) => async dispatch => {
   const response = await api.get(`/posts/?page=${page_num}`);
   dispatch({ type: FETCH_POSTS, payload: response.data });
 };
