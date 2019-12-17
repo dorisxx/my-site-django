@@ -68,7 +68,7 @@ export default class MarkDownCard extends Component {
               </NavLink>
               {this.props.updated && (
                 <p>
-                  Posted on {moment(this.props.updated).format("MMM Do YYYY")}{" "}
+                  Posted on {moment(this.props.showCreated ? this.props.created : this.props.updated).format("MMM Do YYYY")}{" "}
                   {!this.props.noabout && <>about {this.renderTags()}</>}
                   {this.props.comments > 0 && (
                     <>
