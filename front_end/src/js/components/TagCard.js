@@ -8,7 +8,7 @@ import styled from "styled-components";
 const TagWrapper = styled.div`
   margin: 15px auto;
   border: none;
-  width: 90%;
+  width: 85%;
   font-size:small;
   color: white;
   display:flex;
@@ -16,10 +16,10 @@ const TagWrapper = styled.div`
   align-items: center;
   & .badge {
       margin: auto 10px;
+      cursor: pointer;
+  } 
   }
 `;
-
-
 
 export default class TagCard extends Component {
 
@@ -33,7 +33,6 @@ export default class TagCard extends Component {
         api.get("/tags").then(response => {
             if (response.data) {
                 response.data.map(item => {
-                    console.log(item)
                     allTagOptions.push({ value: item.id, label: item.name });
                 });
                 this.setState({ tags: allTagOptions, loading: false })
@@ -44,7 +43,7 @@ export default class TagCard extends Component {
     renderTags() {
         return this.state.tags.map(tag => {
             return (
-                <Badge variant="light" key={tag.label}>
+                <Badge variant="light" key={tag.label} id={tag.value} onClick={(e) => this.props.onFilteredByTag(e.target.id)}>
                     {tag.label}
                 </Badge>
             );
@@ -56,9 +55,6 @@ export default class TagCard extends Component {
             return (
                 <>
                     <TagWrapper>
-                        {/* <NavLink key={this.props.id} to={`/blog/${this.props.slug}`}>
-                            {this.props.title}
-                        </NavLink> */}
                         All tags:
                         {this.renderTags()}
                     </TagWrapper>
