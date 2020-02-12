@@ -59,7 +59,7 @@ const NavBar = props => {
       </style>
       <Navbar expand="lg" variant="dark">
         <Navbar.Brand>
-          <NavLink to="/">Doris Xiang</NavLink>
+          <NavLink to="/">dorisxx</NavLink>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
