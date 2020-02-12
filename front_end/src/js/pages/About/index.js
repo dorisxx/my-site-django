@@ -42,7 +42,7 @@ class AboutPage extends Component {
           title={this.state.title}
           showOptions={this.props.userEmail}
           slug={this.state.slug}
-          noabout
+          isAbout
         />
       );
     }

@@ -63,13 +63,13 @@ export default class MarkDownCard extends Component {
           )}
           {this.props.header && (
             <Card.Header>
-              <NavLink key={this.props.id} to={`/blog/${this.props.slug}`}>
+              <NavLink key={this.props.id} to={`/blog/${this.props.slug}`} style={this.props.isAbout ? { pointerEvents: 'none' } : {}}>
                 {this.props.title}
               </NavLink>
               {this.props.updated && (
                 <p>
                   Posted on {moment(this.props.showCreated ? this.props.created : this.props.updated).format("MMM Do YYYY")}{" "}
-                  {!this.props.noabout && <>about {this.renderTags()}</>}
+                  {!this.props.isAbout && <>about {this.renderTags()}</>}
                   {this.props.comments > 0 && (
                     <>
                       with{" "}
