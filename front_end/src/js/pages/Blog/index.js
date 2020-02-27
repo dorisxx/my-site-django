@@ -17,7 +17,6 @@ const TagNameWrapper = styled.div`
     & .badge {
       margin: auto 10px;
     } 
-  }
 `;
 
 const TextWrapper = styled.div`
@@ -27,7 +26,6 @@ const TextWrapper = styled.div`
   width: 85%;
   & a {
     text-decoration: underline !important;
-  }
   }
 `;
 
