@@ -20,7 +20,7 @@ def unique_slug_generator(instance, slug_text=None):
     if slug_text is not None:
         slug = slug_text
     else:
-        slug = slugify(instance.title)
+        slug = instance.title.replace(" ", "-")
 
     # Klass = instance.__class__
     # check_exists = Klass.objects.filter(slug=slug).exists()
