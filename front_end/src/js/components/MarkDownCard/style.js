@@ -25,11 +25,13 @@ const style = () => (
         padding: 0;
         background-color: white;
         border: none;
+        font-weight: bold;
       }
       .card .card-header p{
         font-size: 0.8rem;
         margin-bottom: 0.1rem;
         color: ${COLORS.text};
+        font-weight: 100;
       }
       .card .card-body{
         font-size: 1rem;

@@ -10,7 +10,7 @@ export const COLORS = {
 export const SIZES = {
     brand: '1.6rem',
     nav: '1.4rem',
-    card_header: '1.4rem',
+    card_header: '1.3rem',
     text: '1.1rem',
     card_subheader: '0.85rem',
 }

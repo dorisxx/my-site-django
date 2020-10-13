@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Typist from "react-typist";
-import { COLORS } from "../../constants";
+import { COLORS, SIZES } from "../../constants";
 
 const TypeWriterWrapper = styled.div`
   overflow: hidden;
   width: 90%;
   text-align: left;
+  font-size: ${SIZES.text}
   color: ${COLORS.text};
   margin: 5% auto;
   // padding: 20px;
