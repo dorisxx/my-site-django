@@ -1,4 +1,5 @@
 import React from "react";
+import { COLORS, SIZES } from "../../constants"
 
 const style = () => (
   <style type="text/css">
@@ -7,37 +8,34 @@ const style = () => (
         z-index:1;
         background: inherit;
         width: 90%;
-        color: white;
+        color: ${COLORS.text};
         overflow: hidden;
-        border-radius: 16px;
+        border: none;
         margin: auto;
-        margin-top: 2%;
-      }
-      .card:before{
-        z-index: -1;
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        filter: blur(10px);
-        box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.13);
+        margin-top: 3%;
+        padding:0;
       }
       .card .badge{
-          margin: 0.2vh 0.5vw;
+          margin: 0.2vh 0;
           font-size: 80%;
       }
       .card .card-header{
-        font-size: 1.8rem;
+        font-size:${SIZES.card_header};
         padding-bottom: 0;
+        padding: 0;
+        background-color: white;
+        border: none;
       }
       .card .card-header p{
         font-size: 0.8rem;
         margin-bottom: 0.1rem;
-        color: #E4ECE4;
+        color: ${COLORS.text};
       }
       .card .card-body{
         font-size: 1rem;
         padding-bottom: 0;
+        padding-top: 0;
+        padding: 0;
       }
       tr {
         border-top: 2px solid #c6cbd1;

@@ -2,9 +2,10 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import bgGif from "../assets/skyme3_8.gif";
 import { withRouter } from "react-router-dom";
+import { COLORS, FONTS } from "../constants";
 
 const BackGroundContainer = styled.div`
-  background-image: url(${bgGif});
+  // background-image: url(${bgGif});
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
@@ -16,9 +17,9 @@ const BackGroundContainer = styled.div`
   top: 0;
   bottom: 0;
   z-index: -20;
-  @media screen and (max-width: 600px) {
-    background-size: cover;
-  }
+  // @media screen and (max-width: 600px) {
+  //   background-size: cover;
+  // }
   filter: ${props =>
     props.location.pathname === "/" ? "blur(0px)" : "blur(20px)"};
 `;
@@ -36,9 +37,9 @@ const ContentContainer = styled.div`
 const GlobalStyle = createGlobalStyle`
 body{
   margin:0;
-  font-family: 'Raleway';
+  font-family: ${FONTS.raleway};
   font-size: 1.3rem;
-  background-color: rgb(14,25,55);
+  background-color: ${COLORS.background};
 }
 *{
   box-sizing: border-box
@@ -48,17 +49,14 @@ body{
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.form-control {
-  border:none;
-}
+
 a:link { 
-  color : white; text-decoration : none;
+  text-decoration : none;
+  color: ${COLORS.text};
 }
-a:visited{color:white ; text-decoration: none;}
+a:visited{color: ${COLORS.visited}; text-decoration: none;}
 a:hover {
-  text-decoration : underline;
-  color: #E4ECE4;
-  text-shadow:0px 0px 30px #fdec6e;
+  text-shadow:0px 0px 30px ${COLORS.shadow};
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;

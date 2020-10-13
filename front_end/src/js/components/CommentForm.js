@@ -29,9 +29,9 @@ class CommentForm extends React.Component {
             this.setState(() => this.initialState);
           }}
         >
-          <InputGroup className="mb-3" size="sm">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="basic-addon1">Name</InputGroup.Text>
+          <InputGroup className="mb-3" size="sm" >
+            <InputGroup.Prepend >
+              <InputGroup.Text style={{ backgroundColor: "white" }} id="basic-addon1">Name</InputGroup.Text>
             </InputGroup.Prepend>
             <FormControl
               type="text"
@@ -41,7 +41,7 @@ class CommentForm extends React.Component {
               onChange={this.handleChange}
             />
             <InputGroup.Prepend>
-              <InputGroup.Text id="basic-addon1">Email</InputGroup.Text>
+              <InputGroup.Text id="basic-addon1" style={{ backgroundColor: "white" }}>Email</InputGroup.Text>
             </InputGroup.Prepend>
             <Form.Control
               type="email"
@@ -66,7 +66,7 @@ class CommentForm extends React.Component {
               onChange={this.handleChange}
             />
             <InputGroup.Append>
-              <Button variant="light" type="submit">
+              <Button variant="light" type="submit" style={{ border: "1px solid #ced4da" }}>
                 Submit
               </Button>
             </InputGroup.Append>

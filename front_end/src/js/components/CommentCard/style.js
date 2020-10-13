@@ -1,4 +1,5 @@
 import React from "react";
+import { SIZES } from "../../constants"
 
 const style = () => (
   <style type="text/css">
@@ -6,22 +7,16 @@ const style = () => (
       .card {
         z-index:1;
         background: inherit;
-        width: 90%;
-        color: white;
         overflow: hidden;
-        margin: auto;
-        padding: auto;
      }
       .card .card-header{
-        font-size: 1.2rem;
+        font-size: ${SIZES.card_header};
       }
       .card .card-header p{
-        font-size: 75%;
-        color: white;
+        font-size: ${SIZES.card_subheader};
       }
       .card .card-body{
-        font-size: 60%;
-        padding: 1rem;
+        font-size: ${SIZES.text};
       }
       `}
   </style>

@@ -9,11 +9,11 @@ import TagCard from "../../components/TagCard";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+
 const TagNameWrapper = styled.div`
   margin: 10px auto;
   border: none;
-  width: 85%;
-  color: white;
+  width: 90%;
     & .badge {
       margin: auto 10px;
     } 
@@ -23,10 +23,7 @@ const TextWrapper = styled.div`
   margin: auto;
   margin-bottom: 30px;
   border: none;
-  width: 85%;
-  & a {
-    text-decoration: underline !important;
-  }
+  width: 90%;
 `;
 
 
@@ -114,7 +111,7 @@ class BlogPage extends Component {
       {
         return (
           <>
-            {this.state.filterOption && <TagNameWrapper>About <Badge variant="danger">{this.state.filterOption}</Badge></TagNameWrapper>}
+            {this.state.filterOption && <TagNameWrapper>About <Badge variant="light">{this.state.filterOption}</Badge></TagNameWrapper>}
             {this.renderPostList()}
             <TagCard
               onFilteredByTag={tagid => this.filterPostsByTag(tagid)}

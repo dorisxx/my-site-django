@@ -38,7 +38,6 @@ class QuoteShow extends Component {
       return (
         <TypeWriter
           id={this.state.id}
-          author={this.state.author}
           body={this.state.body}
         />
       );

@@ -73,7 +73,7 @@ export default class MarkDownCard extends Component {
                   {this.props.comments > 0 && (
                     <>
                       with{" "}
-                      <Badge variant="primary">{this.props.comments}</Badge>
+                      <Badge variant="light">{this.props.comments}</Badge>
                       {this.props.comments > 1 ? <> comments </> : <>comment</>}
                     </>
                   )}

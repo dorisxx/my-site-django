@@ -3,7 +3,7 @@ import React from "react";
 const style = () => (
   <style type="text/css">
     {`
-      form {s
+      form {
         z-index:1;
         background: inherit;
         width: 80%;

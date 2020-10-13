@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const StyledLink = styled.a`
   &:link {
-    text-decoration: underline;
     color: #e4ece4;
     text-shadow: 0px 0px 30px #fdec6e;
     -moz-transition: all 0.2s ease-in;

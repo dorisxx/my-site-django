@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Pagination } from "react-bootstrap";
 import _ from "lodash";
+import { COLORS } from "../constants"
 
 const PaginationWrapper = styled.div`
   overflow: hidden;
@@ -17,7 +18,7 @@ const PaginationWrapper = styled.div`
     justify-content: space-even;
   }
   & .pagination li .page-link {
-    color: white;
+    color: ${COLORS.text};
     background-color: transparent;
     font-size: 1rem;
     line-height: 35px;
@@ -28,7 +29,7 @@ const PaginationWrapper = styled.div`
   }
   & .pagination li.active .page-link,
   & .pagination li .page-link:hover {
-    color: white;
+    color: ${COLORS.text};
     border: none;
     font-size: 1.5rem;
     text-align: center;
@@ -36,7 +37,7 @@ const PaginationWrapper = styled.div`
     text-shadow: 0px 0px 15px white, 0px 0px 15px white, 0px 0px 15px white;
   }
   & .pagination li.disabled .page-link {
-    color: grey;
+    color: ${COLORS.visited};
     border: none;
     background-color: transparent;
   }

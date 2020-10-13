@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, Navbar, Dropdown } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+import { COLORS, SIZES } from "../constants";
 
 const NavBar = props => {
   const Logout = () => {
@@ -19,29 +20,31 @@ const NavBar = props => {
         background: None;
         width: 90%;
         margin-left: 5%;
+        margin-right: 3%;
+        padding-left: 0;
       }
       .navbar .navbar-brand a {
         text-decoration : none;
-        font-size: 1.4rem;
+        font-size: ${SIZES.brand};
+        color: ${COLORS.text};
+        font-weight: bold;
       }
       .navbar .navbar-brand a:hover{
-        color: white;
+        color: ${COLORS.text};
         border: none;
         background-color: transparent;
-        text-shadow: 0px 0px 15px white, 0px 0px 15px white, 0px 0px 15px white;
-      }
-      .navbar-dark .navbar-nav .nav-NavLink {
-        color: white;
+        text-shadow: 0px 0px 15px ${COLORS.background}, 0px 0px 15px ${COLORS.background}, 0px 0px 15px ${COLORS.shadow};      }
+      .navbar-light .navbar-nav .nav-NavLink {
+        color: ${COLORS.text};
         padding: 1.5vw;
-        font-size: 1.1rem;
+        font-size: ${SIZES.nav};
       }
-      .navbar-dark .navbar-nav .nav-NavLink.active,
-      .navbar-dark .navbar-nav .nav-NavLink:hover {
-        color: white;
+      .navbar-light .navbar-nav .nav-NavLink.active,
+      .navbar-light .navbar-nav .nav-NavLink:hover {
+        text-shadow: 0px 0px 15px ${COLORS.background}, 0px 0px 15px ${COLORS.background}, 0px 0px 15px ${COLORS.shadow};
         border: none;
         text-decoration: none;
         background-color: transparent;
-        text-shadow: 0px 0px 15px white, 0px 0px 15px white, 0px 0px 15px white;
       } 
       .dropdown{
         margin: auto;
@@ -57,7 +60,7 @@ const NavBar = props => {
       }
       `}
       </style>
-      <Navbar expand="lg" variant="dark">
+      <Navbar expand="lg" variant="light">
         <Navbar.Brand>
           <NavLink to="/">dorisxx</NavLink>
         </Navbar.Brand>
@@ -65,20 +68,12 @@ const NavBar = props => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto" defaultActiveKey="/about">
             <NavLink
-              to="/about"
-              role="tab"
-              className="nav-NavLink"
-              tabIndex="-1"
-            >
-              About
-            </NavLink>
-            <NavLink
               to="/work"
               role="tab"
               className="nav-NavLink"
               tabIndex="-1"
             >
-              Work
+              work
             </NavLink>
             <NavLink
               to="/blog"
@@ -86,19 +81,27 @@ const NavBar = props => {
               className="nav-NavLink"
               tabIndex="-1"
             >
-              Blog
+              blog
             </NavLink>
-            <NavLink to="/now" role="tab" className="nav-NavLink" tabIndex="-1">
-              Now
-            </NavLink>
+            {/* <NavLink to="/now" role="tab" className="nav-NavLink" tabIndex="-1">
+              now
+            </NavLink> */}
             <NavLink
+              to="/about"
+              role="tab"
+              className="nav-NavLink"
+              tabIndex="-1"
+            >
+              about
+            </NavLink>
+            {/* <NavLink
               to="/random"
               role="tab"
               className="nav-NavLink"
               tabIndex="-1"
             >
               Random
-            </NavLink>
+            </NavLink> */}
             {props.showOptions && (
               <Dropdown>
                 <Dropdown.Toggle variant="danger" id="dropdown-basic" size="sm">

@@ -4,13 +4,14 @@ import { NavLink } from "react-router-dom";
 import LoadSpinner from "./Spinner";
 import api from "../apis"
 import styled from "styled-components";
+import { COLORS } from "../constants"
 
 const TagWrapper = styled.div`
   margin: 15px auto;
   border: none;
-  width: 85%;
+  width: 90%;
   font-size:small;
-  color: white;
+  color: ${COLORS.text};
   display:flex;
   flex-wrap: wrap;
   align-items: center;
