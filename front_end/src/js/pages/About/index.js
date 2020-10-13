@@ -37,9 +37,7 @@ class AboutPage extends Component {
     if (!this.state.loading) {
       return (
         <MarkDownCard
-          updated={this.state.updated}
           content={this.state.abstract}
-          title={this.state.title}
           showOptions={this.props.userEmail}
           slug={this.state.slug}
           isAbout

@@ -8,10 +8,11 @@ import LoadSpinner from "../../components/Spinner";
 import styled from "styled-components";
 import api from "../../apis/";
 import AlertMsg from "../../components/Alert";
+import { COLORS } from "../../constants";
 
 const Wrapper = styled.div`
   border: none;
-  color: white;
+  color: ${COLORS.text};
   padding: 5%;
   font-size: 1rem;
 `;
@@ -92,12 +93,12 @@ class BlogDetailPage extends Component {
         content="Congrats! Your comment has been added"
       />
     ) : (
-      <AlertMsg
-        success={status}
-        show={true}
-        content="Sorry something went wrong, plz try again"
-      />
-    );
+        <AlertMsg
+          success={status}
+          show={true}
+          content="Sorry something went wrong, plz try again"
+        />
+      );
   }
 
   render() {
