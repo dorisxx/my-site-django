@@ -24,6 +24,7 @@ const TypeWriter = props => {
         {/* {props.body} */}
         <p>Hi, I'm Doris.</p>
         <p>I write about music, space, computers, books and other stuff here.</p>
+        <p>Sometimes I write in Chinese.</p>
         {/* <p>{props.author}</p> */}
       </Typist>
     </TypeWriterWrapper>
