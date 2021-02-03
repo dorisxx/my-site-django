@@ -23,9 +23,9 @@ const TypeWriter = props => {
     <TypeWriterWrapper>
       <Typist key={props.id} cursor={{ show: false }} avgTypingDelay={25}>
         {/* {props.body} */}
-        <p>Hi, I'm Doris.</p>
-        <p>I write about music, space, computers, books and other stuff here.</p>
-        <p>Sometimes I write in Chinese.</p>
+        <p>Hi, I'm Doris. This is my personal blog.</p>
+        <p>I write about tech, music, space, books and other stuff, sometimes I use Chinese.</p>
+        <p>Hope you find something useful and have a good day.</p>
         {/* <p>{props.author}</p> */}
       </Typist>
     </TypeWriterWrapper>
